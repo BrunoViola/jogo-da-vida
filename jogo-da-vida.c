@@ -11,8 +11,8 @@ int main(){
     // ===== Declaracao das funcoes =====
     void delay(int segundos);
     void clear ();
-    int **Liberar_matriz (int m, int n, int **pontMatriz);
-    int **Liberar_novaMatriz (int m, int n, int **pontNovaMatriz);
+    int **Liberar_matriz (int m, int **pontMatriz);
+    int **Liberar_novaMatriz (int m, int **pontNovaMatriz);
     int imprimirGeracao (int matrizEscrita[30][30]);
     //===================================
 
@@ -88,7 +88,7 @@ while (cont<geracoes) //Laco responssvel por executar a quantidade de geracoes i
                 qtd = matriz[i][j-1] + matriz[i-1][j-1] + matriz[i-1][j]+matriz[i-1][j+1] + matriz[i][j+1];
 
             } else if (i!=0 && i!= 29 && j == 29){ //lado direito
-                qtd = qtd = matriz[i-1][j] + matriz[i-1][j-1] + matriz[i][j-1]+matriz[i+1][j-1] + matriz[i+1][j];
+                qtd = matriz[i-1][j] + matriz[i-1][j-1] + matriz[i][j-1]+matriz[i+1][j-1] + matriz[i+1][j];
 
             }
             else{
@@ -132,8 +132,8 @@ while (cont<geracoes) //Laco responssvel por executar a quantidade de geracoes i
 
 }
 
-    Liberar_matriz (30, 30, matriz);
-    Liberar_novaMatriz ( 30, 30, novaMatriz);
+    Liberar_matriz (30, matriz);
+    Liberar_novaMatriz ( 30, novaMatriz);
     fclose(file);
     return 0;
 }
@@ -147,7 +147,7 @@ void delay(int segundos) //Funcao destinada a criar o delay entre geracoes
     while (clock() < tempoinicial + milissegundos);
 }
 
-int **Liberar_matriz (int m, int n, int **pontMatriz) { //Funcao destinada a liberacao da matriz
+int **Liberar_matriz (int m, int **pontMatriz) { //Funcao destinada a liberacao da matriz
     int i;
     if (pontMatriz == NULL) return (NULL);
     for (i = 0; i < m; i++) free (pontMatriz[i]);
@@ -155,7 +155,7 @@ int **Liberar_matriz (int m, int n, int **pontMatriz) { //Funcao destinada a lib
     return (NULL);
 }
 
-int **Liberar_novaMatriz (int m, int n, int **pontNovaMatriz) { //Funcao destinada a liberacao da novaMatriz
+int **Liberar_novaMatriz (int m, int **pontNovaMatriz) { //Funcao destinada a liberacao da novaMatriz
     int i;
     if (pontNovaMatriz == NULL) return (NULL);
     for (i = 0; i < m; i++) free (pontNovaMatriz[i]);
