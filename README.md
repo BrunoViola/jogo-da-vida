@@ -8,3 +8,6 @@
     • Uma célula morta com exatamente 3 vizinho vivos, torna-se viva.
     
  <p align="justify">&emsp;Adicionalmente, o programa faz a leitura de um arquivo texto com a dimensão 30x30 e da quantidade de gerações a serem simuladas, exibindo-as com um intervalo de tempo.</p>
+
+## ⚙️ Como executar
+Utilize primeiramente o comando gcc `jogo-da-vida.c -o programa`, após isso efetue a execução por meio do `.\programa.exe`
